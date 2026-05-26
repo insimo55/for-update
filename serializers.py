@@ -231,11 +231,11 @@ class WellClosureSerializer(serializers.ModelSerializer):
     class Meta:
         model = WellClosure
         fields = [
-            'id', 'facility', 'facility_name', # <-- НОВЫЕ ПОЛЯ
+            'facility', 'facility_name', # <-- НОВЫЕ ПОЛЯ
             'well_number', 'bush_number', 'status', 'start_date', 'end_date',
             'comment', 'created_by', 'created_by_username', 'created_at', 'updated_at', 'items'
         ]
-        read_only_fields = ['created_by', 'created_by_username', 'created_at', 'updated_at', 'facility_name']
+        read_only_fields = ['id','created_by', 'created_by_username', 'created_at', 'updated_at', 'facility_name']
 
     # Переопределяем create и update для работы с вложенными `items`
     def create(self, validated_data):
